@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f4fbfa;
+      color: #111111;
+      overflow-x: hidden;
+    }
+
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 76px;
+      width: 100%;
+      padding: 18px 28px;
+      background: #ffffff;
+      border: 1px solid #111111;
+      border-radius: 16px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-link {
+      color: #111111;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 9px;
+    }
+
+    .nav-link:hover {
+      background: #ccefeb;
+    }
+
+    .notification {
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+    }
+
+    .notification img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .notification-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      min-width: 18px;
+      padding: 2px 5px;
+      background: #ccefeb;
+      border: 1px solid #111111;
+      border-radius: 999px;
+      color: #111111;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 76px);
+      padding: 48px 16px;
+    }
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .login {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: min(24rem, 92vw);
+      padding: 38px 32px 30px;
+      background: #ffffff;
+      border: 1px solid #111111;
+      border-radius: 18px;
+      box-shadow: 8px 8px 0 #ccefeb;
+      text-align: center;
+    }
+
+    .login h1 {
+      font-size: 2rem;
+    }
+
+    .login p {
+      line-height: 1.4;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #111111;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #111111;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #ccefeb;
+    }
+
+    .email,
+    .pass {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #111111;
+      border-radius: 10px;
+      outline: none;
+      font: inherit;
+      background: #ffffff;
+      color: #111111;
+    }
+
+    .email:focus,
+    .pass:focus {
+      outline: 3px solid #ccefeb;
+      outline-offset: 1px;
+    }
+
+    .email::placeholder,
+    .pass::placeholder {
+      color: #666666;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #111111;
+      border-radius: 10px;
+      background: #ccefeb;
+      color: #111111;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      background: #aee4de;
+    }
+
+    .fpass,
+    .sign {
+      color: #111111;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .fpass:hover,
+    .sign:hover {
+      color: #397a75;
+    }
+
+    .circle1,
+    .circle2,
+    .circle3 {
+      display: none;
+    }
+
+    .chat {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 48px;
+      height: 48px;
+      background: #ccefeb;
+      border: 1px solid #111111;
+      border-radius: 14px;
+    }
+
+    .chatimg {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 520px) {
+      #navbar {
+        min-height: 68px;
+        padding: 14px 16px;
+      }
+
+      .nav-menu {
+        gap: 2px;
+      }
+
+      .nav-link {
+        padding: 8px 7px;
+        font-size: 0.85rem;
+      }
+
+      .content {
+        min-height: calc(100vh - 68px);
+        padding: 32px 12px;
+      }
+
+      .login {
+        padding: 36px 20px 26px;
+        box-shadow: 5px 5px 0 #ccefeb;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar" class="navbar">
+    <div class="nav-menu">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="notification">
+      <img src="https://cdn-icons-png.flaticon.com/128/8509/8509088.png" alt="Notification" width="30" height="30" />
+      <div class="notification-count">4</div>
+    </div>
+  </nav>
+  <div class="circle1"></div>
+  <section class="content">
+    <div class="container">
+      <div class="login">
+        <button type="button" class="close-btn" aria-label="Close login box">&times;</button>
+        <h1>Welcome Back</h1>
+        <p style="font-weight: 800; font-size: larger;">Login to continue</p>
+        <input type="email" placeholder="Email" class="email" />
+        <input type="password" placeholder="Password" class="pass" />
+        <button class="btn">Login</button>
+        <p><a href="#forgot-password" class="fpass">Forgot password?</a></p>
+        <p>Don't have an account? <a href="#signup" class="sign">Sign up</a></p>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
